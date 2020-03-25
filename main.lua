@@ -1,8 +1,12 @@
 --https://learnxinyminutes.com/docs/lua/ IFFY SUMMARY
+--https://www.lua.org/pil/1.2.html VARIABLE INTRO/HOW TO DELETE GLOBALS
+--https://www.lua.org/pil/2.html TYPES/VARIABLES
+--https://www.lua.org/pil/2.4.html CHANGING STRINGS
 --https://www.lua.org/pil/4.1.html ASSIGNMENT
 --https://www.lua.org/pil/4.2.html LOCAL VARS AND BLOCKS
 --https://www.lua.org/pil/4.3.html LOOPS
 --https://www.lua.org/pil/2.5.html TABLES
+--https://www.lua.org/pil/3.6.html TABLE CONSTRUCTORS
 --https://www.lua.org/pil/2.6.html FUNCTIONS
 
 num = 42
