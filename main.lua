@@ -72,5 +72,5 @@ function giveMeAList(a, b, c)
     print(a, b, c) -- tabs between each value
     return 4, 8, 15, 16, 23, 42
 end
-x, y = giveMeAList("jackson")
+x, y = giveMeAList("jackson") -- missing arguments are printed as nil values
 print(x, y) -- extra returns are discarded
