@@ -97,7 +97,7 @@ function checkForLoss()
 end
 
 function wonMessage()
-    print("You lost, sorry!\n" .. "It was: " .. word .. "\n")
+    print("You won, nice job!\n" .. "It was: " .. word .. "\n")
 end
 
 function lostMessage()
