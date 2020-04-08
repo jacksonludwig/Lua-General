@@ -9,6 +9,13 @@
 --https://www.lua.org/pil/3.6.html TABLE CONSTRUCTORS
 --https://www.lua.org/pil/2.6.html FUNCTIONS
 
+s = io.read("*n") -- read a number
+s = io.read("*l") -- read a line (default when no parameter is given)
+s = io.read("*a") -- read the complete stdin
+s = io.read(7) -- read 7 characters from stdin
+x, y = io.read(7, 12) -- read 7 and 12 characters from stdin and assign them to x and y
+a, b = io.read("*n", "*n") -- read two numbers and assign them to a and b
+
 num = 42
 
 a_string = "single quotes or double make immutable strings... only one liners"
