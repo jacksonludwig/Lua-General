@@ -96,14 +96,22 @@ function checkForLoss()
     return false
 end
 
+function wonMessage()
+    print("You lost, sorry!\n" .. "It was: " .. word .. "\n")
+end
+
+function lostMessage()
+    print("You lost, sorry!\n" .. "It was: " .. word .. "\n")
+end
+
 while true do
     checkGuesses()
 
     if checkForWin() then
-        print("You got it, nice job!\n")
+        wonMessage()
         break
     elseif checkForLoss() then
-        print("You lost, sorry!\n")
+        lostMessage()
         break
     end
 
