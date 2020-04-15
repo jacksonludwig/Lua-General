@@ -53,7 +53,7 @@ local function getInput()
     while true do
         printTable()
         io.write("NEW letter to be entered: ")
-        input = io.read()
+        local input = io.read()
         print()
         if string.len(input) == 1 and not checkIfLetterAlreadyGuessed(input) then
             return input
