@@ -18,23 +18,13 @@ end
 
 -----------------------End Parent Class-----------------------
 
-SpecialAccount = Account:new() --> starts just as a Account object
+local SpecialAccount = Account:new({limit = 1000}) --> all accounts made from SpecialAccount will have a limit field set initially to 1000
+local Test1 = SpecialAccount:new() --> will inherit limit from SpecialAccount
+local Test2 = SpecialAccount:new() --> will inherit limit from SpecialAccount
+local Test3 = SpecialAccount:new({limit = 5000}) -- overwrite the default value
 
-s = SpecialAccount:new({limit = 1000.00})
-s:deposit(3000.00)
-
-function SpecialAccount:withdraw(value) --> "overwrites" old withdraw: Lua does not look in Account for withdraw because it's found in SpecialAccount
-    if value - self.balance >= self:getLimit() then
-        error("insufficient funds")
-    end
-    self.balance = self.balance - value
-end
-
-function SpecialAccount:getLimit()
-    return self.limit or 0
-end
-
-print(s.balance)
-s:withdraw(30012)
+print(Test1.limit) --> 1000
+print(Test2.limit) --> 1000
+print(Test3.limit) --> 5000
 
 -----------------------End Child Class-----------------------
