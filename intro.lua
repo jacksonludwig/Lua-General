@@ -180,3 +180,9 @@ setmetatable(fraction1, metafraction)
 setmetatable(fraction2, metafraction)
 sum = fraction1 + fraction2
 print(sum.num .. " / " .. sum.denom)
+
+words = {}
+
+print(#words)
+
+words[#words + 1] = "hello"

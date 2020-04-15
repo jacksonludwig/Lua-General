@@ -9,7 +9,7 @@ local incorrectGuesses = 0
 
 local CONST_MAX_INCORRECT = 7
 
-function printTable()
+local function printTable()
     io.write("Currently guessed: ")
     for i, item in ipairs(guessedLetters) do
         io.write(item)
@@ -17,7 +17,7 @@ function printTable()
     print()
 end
 
-function checkIfLetterAlreadyGuessed(newLetter)
+local function checkIfLetterAlreadyGuessed(newLetter)
     for i, item in ipairs(guessedLetters) do
         if item == newLetter then
             print("letter already entered!")
@@ -27,7 +27,7 @@ function checkIfLetterAlreadyGuessed(newLetter)
     return false
 end
 
-function checkIfCharInGuessed(character)
+local function checkIfCharInGuessed(character)
     for i, item in ipairs(guessedLetters) do
         if item == character then
             return true
@@ -36,7 +36,7 @@ function checkIfCharInGuessed(character)
     return false
 end
 
-function checkIfGuessedInRandomWord()
+local function checkIfGuessedInRandomWord()
     io.write("Word status: ")
     for char in string.gmatch(word, ".") do
         if checkIfCharInGuessed(char) then
@@ -49,7 +49,7 @@ function checkIfGuessedInRandomWord()
     print()
 end
 
-function getInput()
+local function getInput()
     while true do
         printTable()
         io.write("NEW letter to be entered: ")
@@ -61,11 +61,11 @@ function getInput()
     end
 end
 
-function count(base, pattern)
+local function count(base, pattern)
     return select(2, string.gsub(base, pattern, ""))
 end
 
-function checkGuesses()
+local function checkGuesses()
     correctGuesses = 0
     incorrectGuesses = 0
     for i, item in ipairs(guessedLetters) do
@@ -77,47 +77,51 @@ function checkGuesses()
     end
 end
 
-function printGuesses()
+local function printGuesses()
     print("Correct Guesses: " .. correctGuesses)
     print("Incorrect Guesses: " .. incorrectGuesses)
 end
 
-function checkForWin()
+local function checkForWin()
     if correctGuesses == string.len(word) then
         return true
     end
     return false
 end
 
-function checkForLoss()
+local function checkForLoss()
     if incorrectGuesses == CONST_MAX_INCORRECT then
         return true
     end
     return false
 end
 
-function wonMessage()
+local function wonMessage()
     print("You won, nice job!\n" .. "It was: " .. word .. "\n")
 end
 
-function lostMessage()
+local function lostMessage()
     print("You lost, sorry!\n" .. "It was: " .. word .. "\n")
 end
 
-while true do
-    checkGuesses()
+local function main()
+    while true do
+        checkGuesses()
 
-    if checkForWin() then
-        wonMessage()
-        break
-    elseif checkForLoss() then
-        lostMessage()
-        break
+        if checkForWin() then
+            wonMessage()
+            return
+        elseif checkForLoss() then
+            lostMessage()
+            return
+        end
+
+        printGuesses()
+        checkIfGuessedInRandomWord()
+
+        local inputLetter = getInput()
+        guessedLetters[#guessedLetters + 1] = inputLetter
     end
-
-    printGuesses()
-    checkIfGuessedInRandomWord()
-
-    local inputLetter = getInput()
-    guessedLetters[#guessedLetters + 1] = inputLetter
 end
+
+main()
