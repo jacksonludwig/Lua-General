@@ -1,3 +1,20 @@
+--[[
+    A class works as a mold for the creation of objects. Several OO 
+    languages offer the concept of class. In such languages, 
+    each object is an instance of a specific class. Lua does not 
+    have the concept of class; each object defines its own behavior 
+    and has a shape of its own. Nevertheless, it is not difficult to 
+    emulate classes in Lua, following the lead from prototype-based 
+    languages, such as Self and NewtonScript. In those languages, objects 
+    have no classes. Instead, each object may have a prototype, which is 
+    a regular object where the first object looks up any operation 
+    that it does not know about. To represent a class in such languages, 
+    we simply create an object to be used exclusively as a prototype for 
+    other objects (its instances). Both classes and prototypes work as a 
+    place to put behavior to be shared by several objects. 
+--]]
+
+
 a = {} -- Object a
 b = {} -- Object b
 setmetatable(a, {__index = b}) -- this makes "b" a prototype for "a"

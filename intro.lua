@@ -37,7 +37,7 @@ elseif a_string == big_string then
 else
     thisIsGlobal = 5
 
-    local thisIsLocal = io.read() -- TRY TO DO THIS WHENEVER POSSIBLE, FASTER, SAFER
+    local thisIsLocal = io.read("l") -- TRY TO DO THIS WHENEVER POSSIBLE, FASTER, SAFER
 
     print("String concatenation uses two dots " .. thisIsLocal)
 end
