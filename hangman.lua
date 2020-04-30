@@ -11,14 +11,14 @@ local CONST_MAX_INCORRECT = 7
 
 local function printTable()
     io.write("Currently guessed: ")
-    for item in ipairs(guessedLetters) do
+    for _, item in ipairs(guessedLetters) do
         io.write(item)
     end
     print()
 end
 
 local function checkIfLetterAlreadyGuessed(newLetter)
-    for item in ipairs(guessedLetters) do
+    for _, item in ipairs(guessedLetters) do
         if item == newLetter then
             print("letter already entered!")
             return true
@@ -28,7 +28,7 @@ local function checkIfLetterAlreadyGuessed(newLetter)
 end
 
 local function checkIfCharInGuessed(character)
-    for item in ipairs(guessedLetters) do
+    for _, item in ipairs(guessedLetters) do
         if item == character then
             return true
         end
@@ -68,7 +68,7 @@ end
 local function checkGuesses()
     correctGuesses = 0
     incorrectGuesses = 0
-    for i, item in ipairs(guessedLetters) do
+    for _, item in ipairs(guessedLetters) do
         if string.match(word, item) then
             correctGuesses = correctGuesses + count(word, item)
         else
