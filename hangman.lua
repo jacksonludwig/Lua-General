@@ -2,7 +2,7 @@ local words = {"hello", "quiz", "text", "ch" .. "air"}
 local guessedLetters = {}
 
 math.randomseed(os.time())
-local word = words[math.random(#words)] --> # shorthand for len(words)
+local word = words[math.random(#words)] -- > # shorthand for len(words)
 
 local correctGuesses = 0
 local incorrectGuesses = 0
@@ -11,9 +11,7 @@ local CONST_MAX_INCORRECT = 7
 
 local function printTable()
     io.write("Currently guessed: ")
-    for _, item in ipairs(guessedLetters) do
-        io.write(item)
-    end
+    for _, item in ipairs(guessedLetters) do io.write(item) end
     print()
 end
 
@@ -29,9 +27,7 @@ end
 
 local function checkIfCharInGuessed(character)
     for _, item in ipairs(guessedLetters) do
-        if item == character then
-            return true
-        end
+        if item == character then return true end
     end
     return false
 end
@@ -83,16 +79,12 @@ local function printGuesses()
 end
 
 local function checkForWin()
-    if correctGuesses == string.len(word) then
-        return true
-    end
+    if correctGuesses == string.len(word) then return true end
     return false
 end
 
 local function checkForLoss()
-    if incorrectGuesses == CONST_MAX_INCORRECT then
-        return true
-    end
+    if incorrectGuesses == CONST_MAX_INCORRECT then return true end
     return false
 end
 
@@ -121,6 +113,7 @@ local function main()
 
         local inputLetter = getInput()
         guessedLetters[#guessedLetters + 1] = inputLetter
+
     end
 end
 
