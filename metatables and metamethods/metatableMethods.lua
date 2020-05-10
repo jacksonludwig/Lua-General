@@ -46,3 +46,33 @@ end
 local newCharacter = Character:new({ name = "mario", strength = 5 })
 
 print(newCharacter.name, newCharacter.strength)
+------------------------------------------------------------------------
+
+--rbx example
+local Maid = {__index = {}}
+
+function Maid.new()
+    return setmetatable({tasks = {}}, {__index = Maid.__index})
+end
+
+function Maid:add(task)
+    table.insert(self.tasks, task)
+end
+
+function Maid:clean()
+    for index=#self.tasks, 1, -1 do
+        local task = self.tasks[index]
+        local taskType = typeof(task)
+
+        if taskType == "function" then
+            task()
+        elseif taskType == "Instance" then
+            task:Destroy()
+        elseif taskType == "RBXScriptConnection" then
+            task:Disconnect()
+        end
+    end
+    self.tasks = {}
+end
+
+return Maid
